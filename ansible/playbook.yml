@@ -1,0 +1,6 @@
+- name: Configure and monitor server
+  hosts: all
+  become: yes
+  roles:
+    - monitor
+    - recovery

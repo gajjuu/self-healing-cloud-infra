@@ -1,0 +1,11 @@
+- name: Install Prometheus and Node Exporter
+  apt:
+    name: ['prometheus', 'prometheus-node-exporter']
+    state: present
+    update_cache: yes
+
+- name: Ensure Prometheus is running
+  systemd:
+    name: prometheus
+    state: started
+    enabled: yes

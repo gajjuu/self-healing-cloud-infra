@@ -1,0 +1,6 @@
+- name: Restart Prometheus if stopped
+  shell: systemctl restart prometheus
+  ignore_errors: yes
+
+- name: Notify Slack about recovery
+  shell: bash ../../scripts/notify_slack.sh "Prometheus restarted automatically after failure."

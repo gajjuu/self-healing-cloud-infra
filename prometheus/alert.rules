@@ -1,0 +1,20 @@
+groups:
+  - name: instance_alerts
+    rules:
+      - alert: InstanceDown
+        expr: up == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Instance is down"
+          description: "EC2 instance not responding for more than 1 minute"
+
+      - alert: HighCPUUsage
+        expr: node_cpu_seconds_total > 90
+        for: 2m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High CPU usage detected"
+          description: "CPU utilization above 90% for 2 minutes"
